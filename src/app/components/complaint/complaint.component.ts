@@ -7,15 +7,12 @@ import { ComplaintService } from 'src/app/services/complaint.service';
   styleUrls: ['./complaint.component.css'],
 })
 export class ComplaintComponent {
-  constructor(private complaintService: ComplaintService) {}
-
-  complaint = [];
+  constructor(public complaintService: ComplaintService) {}
 
   ngOnInit() {
     this.complaintService.getComplaint().subscribe(
       (res) => {
-        console.log(res);
-        this.complaint = res;
+        this.complaintService.complaints = res;
       },
       (err) => {
         console.log(err);

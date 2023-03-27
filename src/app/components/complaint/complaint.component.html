@@ -1,1 +1,35 @@
-<p>complaint works!</p>
+<div class="container">
+  <h1>¡Bienvenido!</h1>
+  <div
+    className="bg-zinc-700 text-white rounded-md p-4"
+    *ngFor="let complaint of complaintService.complaints"
+  >
+    <div class="card-body">
+      <h3 class="card-title">{{ complaint.type }}</h3>
+      <h4 class="card-subtitle mb-2 text-muted">
+        {{ complaint.domicile }} - {{ complaint.colony }}
+      </h4>
+      <h5 class="card-subtitle mb-2">
+        {{
+          complaint.idAccount == "" || complaint.idAccount == null
+            ? "Este usuario no tiene número de contrato"
+            : complaint.idAccount
+        }}
+        - {{ complaint.name }}
+      </h5>
+      <h6 class="card-subtitle mb-2 mt-2">
+        {{ complaint.phone }}
+      </h6>
+      <p class="card-text">
+        {{
+          complaint.comment == "" || complaint.idAccount == null
+            ? "Este usuario no puso ningún comentario."
+            : complaint.comment
+        }}
+      </p>
+      <p class="card-text" style="font-size: 24px; color: red">
+        {{ complaint.status }}
+      </p>
+    </div>
+  </div>
+</div>
