@@ -32,8 +32,6 @@ export class CreateComplaintComponent {
         console.log(err);
       }
     );
-
-    console.log('save?', this.contactForm.value);
   }
 
   initForm() {
